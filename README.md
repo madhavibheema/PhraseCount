@@ -40,7 +40,8 @@ cat src/test/resources/mobydick.txt | ./gradlew run
 ```
 
 ### Output Sample - ./gradlew run --args='src/test/resources/mobydick.txt'
-Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
+
+#Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
 Phrase #################################  Frequency
 the sperm whale                          | 84
 whale the sperm                          | 83
