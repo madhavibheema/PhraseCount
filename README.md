@@ -39,16 +39,13 @@ Or
 cat src/test/resources/mobydick.txt | ./gradlew run
 ```
 
-### Output Sample  for the command ./gradlew run --args='src/test/resources/mobydick.txt'
 
-............................................................
-#### Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
-Phrase #################################  Frequency
-the sperm whale                          | 84
-whale the sperm                          | 83
-sperm whale the                          | 71
-of the whale                             | 48
-...........................................................
+### Output Sample - ./gradlew run --args='src/test/resources/mobydick.txt'
+- Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
+- Phrase #################################  Frequency
+- the sperm whale                          | 84
+- whale the sperm                          | 83
+- of the whale                             | 48
 
 
 
