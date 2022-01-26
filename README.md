@@ -2,9 +2,12 @@
 Please create a program executable from the command line that when given text(s) 
 will return a list of the 100 most common three word sequences.
 
+# Software Used
+- Intellij Community Edition with jdk 1.8. 
+- Github.
+- I prefer Intellij as the ultimate edition supports adding databases within IDE and refactoring is very easy. We do need a separated DB tool and it saves time.
+
 # Installation and Running Application
-I used Intellij Community Edition and used jdk 1.8. I prefer Intellij as the ultimate edition 
-supports with adding databases and refactoring is very easy.
 
 ### Prerequisites
 
