@@ -39,14 +39,16 @@ Or
 cat src/test/resources/mobydick.txt | ./gradlew run
 ```
 
-### Output Sample - ./gradlew run --args='src/test/resources/mobydick.txt'
+### Output Sample  for the command ./gradlew run --args='src/test/resources/mobydick.txt'
 
-#Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
+............................................................
+#### Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
 Phrase #################################  Frequency
 the sperm whale                          | 84
 whale the sperm                          | 83
 sperm whale the                          | 71
 of the whale                             | 48
+...........................................................
 
 
 
@@ -59,5 +61,5 @@ of the whale                             | 48
 - Did not work on UTF-8 string comparision due to time constraint.
 - Tried with different matcher combinations but went ahead with considering hyphen and apostrophe.
 
-###* Are there bugs that you are aware of?
+### Are there bugs that you are aware of?
 None
