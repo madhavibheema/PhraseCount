@@ -18,7 +18,7 @@ public class PhraseCountTest {
     private static final String RESOURCES_FOLDER = "src/test/resources/";
 
     private static final String EMPTY_FILE_TXT = RESOURCES_FOLDER + "empty_file.txt";
-    public static final String MOBYDICK_TXT = "mobydick.txt";
+    public static final String MOBYDICK_TXT =  RESOURCES_FOLDER + "mobydick.txt";
 
 
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

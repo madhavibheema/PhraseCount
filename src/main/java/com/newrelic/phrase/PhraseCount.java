@@ -15,7 +15,9 @@ import java.util.regex.Pattern;
 
 
 public class PhraseCount {
-    public static final String WORD_PATTERN = "((\\w+'\\w+)|(\\w+'\\w+)|(\\w+-?\\w+)|(\\w+))";
+
+    //hyphen and apostrophe are allowed Eg- whale's and whale-ship
+    public static final String WORD_PATTERN = "((\\w+'\\w+)|(\\w+-?\\w+)|(\\w+))";
 
 
 
@@ -37,24 +39,7 @@ public class PhraseCount {
     private static void printTopHundredPhrases(Map<String, Integer> phrases, String inputSource) {
         if (phrases.size() > 0) {
             System.out.println("Printing TOP 100 Phrases for :" + inputSource);
-         /*   ArrayList<Integer> values = new ArrayList<Integer>();
-            values.addAll(phrases.values());
-            Collections.sort(values, Collections.reverseOrder());
-
-            int last_i = -1;
-
-            for (Integer i : values.subList(0, 99)) {
-                if (last_i == i) // without duplicates
-                    continue;
-                last_i = i;
-
-
-                for (String s : phrases.keySet()) {
-                    if (phrases.get(s) == i) // which have this value
-                        System.out.println(s+ " ============> "  + i);
-
-                }
-            }*/
+            System.out.println("Phrase #################################  " + "Frequency");
 
             phrases.entrySet()
                     .stream()
@@ -89,17 +74,6 @@ public class PhraseCount {
     public static List<String> getMatchesAsList(String line) {
         List<String> matches = new ArrayList<String>();
         Pattern p = Pattern.compile(WORD_PATTERN);
-        Matcher m = p.matcher(line);
-        while (m.find()) {
-            matches.add(m.group().toLowerCase());
-        }
-        return matches;
-    }
-
-
-    public static LinkedList<String> getMatchesAsLinkedList(String line) {
-        LinkedList<String> matches = new LinkedList<String>();
-        Pattern p = Pattern.compile(WORD_PATTERN,Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(line);
         while (m.find()) {
             matches.add(m.group().toLowerCase());

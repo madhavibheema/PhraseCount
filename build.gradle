@@ -28,4 +28,4 @@ run {
     standardInput = System.in
 }
 
-mainClassName = 'com.newrelic.phrase.WordCount'
+mainClassName = 'com.newrelic.phrase.PhraseCount'
