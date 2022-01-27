@@ -20,6 +20,9 @@ public class PhraseCountTest {
     private static final String EMPTY_FILE_TXT = RESOURCES_FOLDER + "empty_file.txt";
     public static final String MOBYDICK_TXT =  RESOURCES_FOLDER + "mobydick.txt";
 
+    public static final String UTF_TXT =  RESOURCES_FOLDER + "utf.txt";
+
+
 
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     private final PrintStream printStream = System.out;
@@ -40,7 +43,7 @@ public class PhraseCountTest {
     public void testMainStdInProcess() throws IOException {
         String[] args = new String[0];
         final InputStream original = System.in;
-        final FileInputStream fips = new FileInputStream(new File(MOBYDICK_TXT));
+        final FileInputStream fips = new FileInputStream(new File(UTF_TXT));
         System.setIn(fips);
         PhraseCount.main(args);
         System.setIn(original);

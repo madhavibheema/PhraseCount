@@ -40,12 +40,11 @@ cat src/test/resources/mobydick.txt | ./gradlew run
 ```
 
 ### Output Sample - ./gradlew run --args='src/test/resources/mobydick.txt'
-Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
-Phrase #################################  Frequency
-the sperm whale                          | 84
-whale the sperm                          | 83
-sperm whale the                          | 71
-of the whale                             | 48
+- Printing TOP 100 Phrases for :src/test/resources/mobydick.txt
+- Phrase #################################  Frequency
+- the sperm whale                          | 84
+- whale the sperm                          | 83
+- of the whale                             | 48
 
 
 ### What you would do next, given more time (if anything)?
@@ -54,7 +53,6 @@ of the whale                             | 48
  to asynchronously consume and process the file and create/update entries in DB. 
 - Implement validations for file size/data restrictions if any and display error messages to user.
 - Do load testing during peak/nonpeak hours with different file sizes. 
-- Did not work on UTF-8 string comparision due to time constraint.
 - Tried with different matcher combinations but went ahead with considering hyphen and apostrophe.
 
 ###* Are there bugs that you are aware of?

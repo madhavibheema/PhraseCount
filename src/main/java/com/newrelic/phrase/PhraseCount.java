@@ -7,11 +7,15 @@ package com.newrelic.phrase;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class PhraseCount {
@@ -56,8 +60,8 @@ public class PhraseCount {
 
 
     private static void addPhrase(Map<String, Integer> phrases, String phrase) {
-        Integer occurences = phrases.get(phrase);
-        if( occurences == null) {
+        Integer occurrences = phrases.get(phrase);
+        if( occurrences == null) {
             phrases.put(phrase, 1);
         } else {
             phrases.put(phrase, phrases.get(phrase) + 1);
@@ -83,10 +87,14 @@ public class PhraseCount {
 
 
     public static void readStdInFile() {
-        InputStreamReader isReader = new InputStreamReader(System.in);
-        try (BufferedReader br = new BufferedReader(isReader)) {
-            Map<String, Integer> phrases = processAllContent(br);
+        Charset charset = StandardCharsets.UTF_8;
 
+        InputStreamReader isReader = new InputStreamReader(System.in,charset);
+        try (BufferedReader br = new BufferedReader(isReader)) {
+            final Stream<String> lines = br.lines();
+            List<String> phrasesList = new ArrayList<>();
+            phrasesList = lines.collect(Collectors.toList());
+            Map<String, Integer> phrases = processAllContent(phrasesList);
             // Output
             printTopHundredPhrases(phrases, "StdIn");
         } catch (IOException e) {
@@ -97,9 +105,10 @@ public class PhraseCount {
 
 
     public static void readFile(String fileName) {
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
-            Map<String, Integer> phrases = processAllContent(br);
-
+        try {
+            List<String> phraseList = new ArrayList<>();
+            phraseList = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
+            Map<String, Integer> phrases = processAllContent(phraseList);
             // Output
             printTopHundredPhrases(phrases, fileName);
         } catch (IOException e) {
@@ -108,15 +117,16 @@ public class PhraseCount {
         }
     }
 
-
-    private static Map<String, Integer> processAllContent(BufferedReader br) throws IOException {
+    private static Map<String, Integer> processAllContent(List<String> phrasesList)  {
         Map<String, Integer> phrases = new HashMap<String, Integer>();
-
-        String line = "";
         StringBuilder sb = new StringBuilder();
-        while ((line = br.readLine()) != null) {
-            sb.append(line).append("\n");
+
+        for(String line : phrasesList){
+            if (line != null) {
+                sb.append(line).append("\n");
+            }
         }
+
         String contents = sb.toString().trim();
 
         List<String> matches = getMatchesAsList(contents);
