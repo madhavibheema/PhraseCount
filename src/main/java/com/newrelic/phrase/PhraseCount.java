@@ -11,7 +11,11 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -22,7 +26,7 @@ public class PhraseCount {
 
     //hyphen and apostrophe are allowed Eg- whale's and whale-ship
     public static final String WORD_PATTERN = "((\\w+'\\w+)|(\\w+-?\\w+)|(\\w+))";
-
+    public static final int MAX_SIZE = 100;
 
 
     public static void main(String[] args) {
@@ -48,7 +52,7 @@ public class PhraseCount {
             phrases.entrySet()
                     .stream()
                     .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                    .limit(100)
+                    .limit(MAX_SIZE)
                     .forEach(entry -> {
                         System.out.println(String.format("%-40s | %d",entry.getKey(), entry.getValue()));
                     });
